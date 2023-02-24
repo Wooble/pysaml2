@@ -1,5 +1,64 @@
 # Changelog
 
+## 7.4.1 (2023-02-24)
+
+- Fix subject-id requirements processing
+
+
+## 7.4.0 (2023-02-14)
+
+- Ensure the ID of each Signature element is unique when signing an encrypted assertion
+- Bump Python to 3.9
+- dev: Add mypy configuration and type stubs
+- tests: move tox.ini config into pyproject.toml
+- docs: Update release instructions
+
+
+## 7.3.0 (2023-02-14)
+
+- During metadata generation, render extensions both for EntityDescriptor and IdPSSODescriptor
+- Fix compatibility with certain SAML implementation that inflate messasges on the POST binding
+- Update the SWAMID entity category requirements
+- Fix check for NameID when it originates from an encrypted asssertion
+- Add support for pymongo `>=3.5` and `<5`
+- Update README with supported specifications
+- Remove dependency on the six package
+- Cleanup unused imports and pythonisms for Python versions older than 3.6
+- Convert README to markdown
+- Introduce flake8 to check for issues
+- Use black and isort to manage formatting and imports
+- Use poetry to manage the project dependencies, packaging and versions
+- Fix whitespace typos on the eIDAS schemas
+- Try different logout bindings on the saml2.client level
+- Add the mailLocalAddress attribute as part of the saml and shib uri name format bundles
+- Add the isMemberOf attribute as part of the basic attribute format bundle
+
+
+## 7.2.1 (2022-08-23)
+
+- Accept and forward sign and digest alg information when creating a metadata string
+- Fix tests to comply with latest xmlschema
+
+
+## 7.2.0 (2022-08-10)
+
+- Add schemas for eIDAS extensions, elements and attributes
+- Add the voPerson v2 attributes mappings; see [reference](https://github.com/voperson/voperson/tree/2.0.0)
+- Add the `registration_info_typ` method on `saml2.mdstore.MetadataStore` to get the registration information from an `EntityDescriptor` services
+- Allow exceptions to convey the SAML `StatusCode` in an error response
+- Fix typo on method name under `saml2.mdstore.MetadataStore`; from `sbibmd_scopes` to `shibmd_scopes`
+- Add partial support for `xs:date` `AttributeValue` type
+- Fallback to `xs:string` as the type of the `AttributeValue` text node
+- Fallback to the authn context class declaration to set the authn context class reference
+- Αdd configuration option `http_client_timeout` to set a timeout on the HTTP calls by the httpbase module
+- Load certificates using cryptography and support certificate chains
+- Remove deprecated cryptography backend param
+- Fix assertion policy filter: Fallback to match a known attribute or return its name
+- examples: Allow multiple attributes to be returned by the idp
+- tests: Minor cleanups
+- docs: Reference python2 compatible fork
+- misc: add pepy badges on the README file
+
 
 ## 7.1.2 (2022-03-04)
 
